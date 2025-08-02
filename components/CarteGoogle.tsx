@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+// components/CarteGoogle.tsx
+import React from 'react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const locations = [
   { name: 'Kintambo', lat: -4.3194, lng: 15.2844 },
@@ -9,35 +11,32 @@ const locations = [
   { name: 'Gombe', lat: -4.3192, lng: 15.3116 },
 ];
 
-declare global {
-  interface Window {
-    google: any;
-  }
-}
-
-const CarteGoogle: React.FC = () => {
-  const mapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const loader = new window.google.maps.Map(mapRef.current!, {
-      zoom: 12,
-      center: { lat: -4.35, lng: 15.3 },
-    });
-
-    locations.forEach((loc) => {
-      new window.google.maps.Marker({
-        position: { lat: loc.lat, lng: loc.lng },
-        map: loader,
-        title: loc.name,
-      });
-    });
-
-    const bounds = new window.google.maps.LatLngBounds();
-    locations.forEach(loc => bounds.extend({ lat: loc.lat, lng: loc.lng }));
-    loader.fitBounds(bounds);
-  }, []);
-
-  return <div ref={mapRef} style={{ height: '400px', width: '100%' }} />;
+const containerStyle = {
+  width: '100%',
+  height: '400px',
 };
 
-export default CarteGoogle;
+const center = {
+  lat: -4.35,
+  lng: 15.3,
+};
+
+export default function CarteGoogle() {
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+  if (!apiKey) return <div>⚠️ Clé API Google Maps manquante !</div>;
+
+  return (
+    <LoadScript googleMapsApiKey={apiKey}>
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
+        {locations.map((loc, i) => (
+          <Marker
+            key={i}
+            position={{ lat: loc.lat, lng: loc.lng }}
+            title={loc.name}
+          />
+        ))}
+      </GoogleMap>
+    </LoadScript>
+  );
+}
