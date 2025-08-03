@@ -22,7 +22,7 @@ const style={
    },
  table:{
   th:{ 
-   backgroundCOlor: "rgb(20,150,255)",
+   backgroundColor: "rgb(20,150,255)",
    color: "#fff"
   },
   setting:{
