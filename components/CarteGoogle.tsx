@@ -39,7 +39,10 @@ const CarteGoogle: React.FC = () => {
       });
       bounds.extend({ lat: loc.lat, lng: loc.lng });
     });
-    map.setZoom(450)
+    //{ lat: -4.35, lng: 15.3 }
+    
+    map.setCenter({ lat: 60, lng: 40 })
+    map.setZoom(150)
     console.log("MAP monté : ", map,"loc:" ,locations)
     
     map.fitBounds(bounds);
