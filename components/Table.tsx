@@ -24,7 +24,7 @@ type Data = {
 const rivieres=[
  {
     id: Math.floor(Math.random()*100),
-    timestamp: new Date(),
+    timestamp: "",
     riviere: 'Rivière de Bandal',
     adresse: 'Bandalungwa',
     distance: Math.floor(Math.random()*100),
@@ -36,7 +36,7 @@ const rivieres=[
 },
 {
     id: Math.floor(Math.random()*100),
-    timestamp: new Date(),
+    timestamp: "",
     riviere: 'NDJILI',
     adresse: 'COmmne de Ndjili',
     distance: Math.floor(Math.random()*100),
@@ -48,7 +48,7 @@ const rivieres=[
 },
 {
     id: Math.floor(Math.random()*100),
-    timestamp: new Date(),
+    timestamp: "",
     riviere: 'Kisenso',
     adresse: 'Dans la commune de Kisenso', 
     distance: Math.floor(Math.random()*100),
@@ -60,7 +60,7 @@ const rivieres=[
 },
 {
     id: Math.floor(Math.random()*100),
-    timestamp: new Date(),
+    timestamp: "",
     riviere: 'Kongo',
     adresse: 'Commune de Lingwala',
     distance: Math.floor(Math.random()*100),
@@ -72,7 +72,7 @@ const rivieres=[
 },
 {
     id: Math.floor(Math.random()*100),
-    timestamp: new Date(),
+    timestamp: "",
     riviere: 'Rivière Martyrs',
     adresse: 'KASAVUVU',
     distance: Math.floor(Math.random()*100),
@@ -84,7 +84,7 @@ const rivieres=[
 },
 {
     id: Math.floor(Math.random()*100),
-    timestamp: new Date(),
+    timestamp: "",
     riviere: 'UPN',
     adresse: 'NGALIEMA',
     distance: Math.floor(Math.random()*100),
