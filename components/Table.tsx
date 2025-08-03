@@ -27,6 +27,7 @@ const style={
    color: "#fff"
   },
   setting:{
+   width: "100%",
    color: "red",
    border: "1px solid red"}
  }
