@@ -24,7 +24,7 @@ const CarteGoogle: React.FC = () => {
     if (!window.google || !mapRef.current) return;
 
     const map = new window.google.maps.Map(mapRef.current, {
-      zoom: 12,
+      zoom: 60,
       center: { lat: -4.35, lng: 15.3 },
     });
 
