@@ -38,10 +38,10 @@ const CarteGoogle: React.FC = () => {
       });
       bounds.extend({ lat: loc.lat, lng: loc.lng });
     });
-
+    console.log("MAP monté : ", map,"loc:" ,locations)
     map.fitBounds(bounds);
   }, []);
-
+    
   return <div ref={mapRef} style={{ height: '400px', width: '100%' }} />;
 };
 
