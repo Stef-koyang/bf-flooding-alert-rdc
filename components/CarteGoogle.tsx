@@ -20,9 +20,8 @@ const CarteGoogle: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<any>(null);
   const markersRef = useRef<any[]>([]);
-  const boundsRef = useRef<any>(null);
+  const [lastData, setLastData] = useState<any[]>([]);
 
-  // Charger la carte une seule fois
   useEffect(() => {
     if (!window.google || !mapRef.current) return;
 
@@ -31,11 +30,9 @@ const CarteGoogle: React.FC = () => {
       center: { lat: -4.33, lng: 15.3 },
     });
 
-    boundsRef.current = new window.google.maps.LatLngBounds();
     setMap(gmap);
   }, []);
 
-  // Charger les données toutes les 2 secondes
   useEffect(() => {
     if (!map) return;
 
@@ -43,10 +40,13 @@ const CarteGoogle: React.FC = () => {
       const response = await fetch('/api/data');
       const data = await response.json();
 
-      // Supprimer les anciens marqueurs
+      // Si pas de nouvelles données, ne rien faire
+      if (JSON.stringify(data) === JSON.stringify(lastData)) return;
+      setLastData(data);
+
+      // Supprimer anciens marqueurs
       markersRef.current.forEach(marker => marker.setMap(null));
       markersRef.current = [];
-      const bounds = new window.google.maps.LatLngBounds();
 
       data.forEach((point: any) => {
         const coord = coordsByAdresse[point.adresse];
@@ -59,22 +59,31 @@ const CarteGoogle: React.FC = () => {
         });
 
         markersRef.current.push(marker);
-        bounds.extend(coord);
-
-        // Déclencher l'alarme si estimation > 60
-        if (point.estimation > 60) {
-          const alarm = document.getElementById('alarm') as HTMLAudioElement;
-          if (alarm && alarm.paused) {
-            alarm.play().catch(() => {});
-          }
-        }
       });
 
-      map.fitBounds(bounds);
-    }, 2000); // toutes les 2 secondes
+      // Zoom automatique sur la dernière donnée
+      const lastPoint = data[data.length - 1];
+      const lastCoord = coordsByAdresse[lastPoint.adresse];
+
+      if (lastCoord) {
+        setTimeout(() => {
+          map.setZoom(20);
+          map.setCenter(lastCoord);
+        }, 5000); // Zoom après 5 secondes
+
+        if (lastPoint.estimation > 60) {
+          setTimeout(() => {
+            const alarm = document.getElementById('alarm') as HTMLAudioElement;
+            if (alarm && alarm.paused) {
+              alarm.play().catch(() => {});
+            }
+          }, 3000); // Alarme après 3 secondes
+        }
+      }
+    }, 2000); // Actualisation toutes les 2 secondes
 
     return () => clearInterval(interval);
-  }, [map]);
+  }, [map, lastData]);
 
   return <div ref={mapRef} style={{ height: '400px', width: '100%' }} />;
 };
