@@ -17,7 +17,8 @@ type Data = {
 const style={
    div:{
      maxWidth:"80%",
-    margin: 'auto'
+    margin: 'auto',
+    border: '1px solid blue'
    },
  table:{
    color: "red",
