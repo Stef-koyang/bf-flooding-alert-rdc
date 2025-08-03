@@ -25,7 +25,7 @@ const CarteGoogle: React.FC = () => {
 
     let map = new window.google.maps.Map(mapRef.current, {
       zoom: 60,
-      center: { lat: -4.35, lng: 15.3 },
+      center: { lat: 60, lng: 40 },
     });
 
     const bounds = new window.google.maps.LatLngBounds();
