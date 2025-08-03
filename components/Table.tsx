@@ -33,7 +33,7 @@ const Table = () => {
           <tr className="bg-gray-100">
             <th>ID</th>
             <th>Date/Heure</th>
-            <th>Lieu</th>
+            <th>site</th>
             <th>Distance</th>
             <th>Responsable</th>
             <th>Téléphone</th>
