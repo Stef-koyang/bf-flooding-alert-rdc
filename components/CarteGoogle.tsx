@@ -31,6 +31,7 @@ const CarteGoogle: React.FC = () => {
     const bounds = new window.google.maps.LatLngBounds();
 
     locations.forEach((loc) => {
+      console.log("Location Courante :",loc)
       new window.google.maps.Marker({
         position: { lat: loc.lat, lng: loc.lng },
         map,
