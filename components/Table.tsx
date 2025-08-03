@@ -21,15 +21,14 @@ const style={
     border: '1px solid blue'
    },
  table:{
-  th:{
-   border: "1px solid green",
-   backgroundCOlor: "rgb(200,200,200)",
+  th:{ 
+   backgroundCOlor: "rgb(20,150,255)",
    color: "#fff"
   },
   setting:{
-   mqrgin: "auto",
+   boxShadow: "0 0 8 rgb(180,180,180)",
+   margin: "auto",
    width :'90%',
-   
    color: "red",
    border: "1px solid red"}
  }
