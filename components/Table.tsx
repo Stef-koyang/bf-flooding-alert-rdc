@@ -15,8 +15,14 @@ type Data = {
   estimation: number;
 };
 const style={
+   div:{
+     max-width:"80%",
+    margin: 'auto'
+   },
+ table:{
    color: "red",
    border: "1px solid red"
+ }
 }
 const Table = () => {
   const [data, setData] = useState<Data[]>([]);
@@ -32,7 +38,7 @@ const Table = () => {
 
   return (
     
-    <div style={style}>
+    <div style={style.div}>
       <table className="table-auto w-full border-collapse border border-gray-200">
         <thead>
           <tr className="bg-gray-100">
