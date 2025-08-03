@@ -151,7 +151,7 @@ const Table = () => {
         </thead>
         <tbody>
           {rivieres.map((item, idx) => (
-            <tr key={idx} style={idx%2===0 ? {style.table.tr_s}:{style.table.tr}} className="text-center border-t border-gray-200" >
+            <tr key={idx} style={idx%2===0 ? style.table.tr_s:style.table.tr} className="text-center border-t border-gray-200" >
               <td>{item.id}</td>
               <td>{item.timestamp}</td>
               <td>{item.adresse}</td>
