@@ -110,12 +110,13 @@ const style={
    background:"rgb(230,230,255)"
   },
   tr_s:{
-   background:"rgb(240,240,255)"
+   background:"rgb(230,250,255)"
   },
   setting:{
+   "margin-top":"2%",
    border: 'none',
    'border-collapse':'collapse',
-   boxShadow: "0 0 8px rgb(180,180,180)",
+   boxShadow: "0 0 12px rgb(190,190,190)",
    margin: "auto",
    width :'90%',
    borderRadius: "8px"
