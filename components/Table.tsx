@@ -28,7 +28,6 @@ const style={
    boxShadow: "0 0 8px rgb(180,180,180)",
    margin: "auto",
    width :'90%',
-   color: "red",
    borderRadius: "8px"
   }
  }
