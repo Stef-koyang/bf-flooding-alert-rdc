@@ -113,6 +113,8 @@ const style={
    background:"rgb(240,240,255)"
   },
   setting:{
+   border: 'none',
+   borderCollapse:'collapse',
    boxShadow: "0 0 8px rgb(180,180,180)",
    margin: "auto",
    width :'90%',
