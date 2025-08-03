@@ -102,7 +102,7 @@ const style={
    },
  table:{
   th:{ 
-   border: '1px solid transparent',
+   border: '1px solid rgb(20,150,255)',
    background: "rgb(20,150,255)",
    color: "#fff"
   },
