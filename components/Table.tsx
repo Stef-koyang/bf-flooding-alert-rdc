@@ -114,7 +114,7 @@ const style={
   },
   setting:{
    border: 'none',
-   borderCollapse:'collapse',
+   'border-collapse':'collapse',
    boxShadow: "0 0 8px rgb(180,180,180)",
    margin: "auto",
    width :'90%',
