@@ -28,7 +28,8 @@ const Table = () => {
   }, []);
 
   return (
-    <div className="overflow-x-auto">
+    
+    <div className="red">
       <table className="table-auto w-full border-collapse border border-gray-200">
         <thead>
           <tr className="bg-gray-100">
