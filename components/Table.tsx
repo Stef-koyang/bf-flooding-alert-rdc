@@ -14,7 +14,10 @@ type Data = {
   temps23: number;
   estimation: number;
 };
-
+const style={
+   color: "red",
+   border: "1px solid red"
+}
 const Table = () => {
   const [data, setData] = useState<Data[]>([]);
 
@@ -29,7 +32,7 @@ const Table = () => {
 
   return (
     
-    <div className="red">
+    <div style={style}>
       <table className="table-auto w-full border-collapse border border-gray-200">
         <thead>
           <tr className="bg-gray-100">
