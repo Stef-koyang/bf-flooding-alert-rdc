@@ -103,14 +103,14 @@ const style={
  table:{
   th:{ 
    border: '1px solid rgb(20,150,255)',
-   background: "rgb(20,150,255)",
+   background: "rgb(50,150,255)",
    color: "#fff"
   },
   tr:{
    background:"rgb(230,230,255)"
   },
   tr_s:{
-   background:"rgb(230,250,255)"
+   background:"rgb(250,250,255)"
   },
   setting:{
    "margin-top":"2%",
