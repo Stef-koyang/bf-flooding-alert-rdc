@@ -16,7 +16,7 @@ type Data = {
 };
 const style={
    div:{
-     max-width:"80%",
+     maxWidth:"80%",
     margin: 'auto'
    },
  table:{
