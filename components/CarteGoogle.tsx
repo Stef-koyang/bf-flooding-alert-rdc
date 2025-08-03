@@ -33,7 +33,7 @@ const CarteGoogle: React.FC = () => {
     locations.forEach((loc) => {
       new window.google.maps.Marker({
         position: { lat: loc.lat, lng: loc.lng },
-        {...map,zoom:120},
+        map,
         title: loc.name,
       });
       bounds.extend({ lat: loc.lat, lng: loc.lng });
