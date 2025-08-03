@@ -39,7 +39,7 @@ const Table = () => {
   return (
     
     <div style={style.div}>
-      <table className="table-auto w-full border-collapse border border-gray-200">
+      <table style={style.table} className="table-auto w-full border-collapse border border-gray-200">
         <thead>
           <tr className="bg-gray-100">
             <th>ID</th>
@@ -55,7 +55,7 @@ const Table = () => {
         </thead>
         <tbody>
           {data.map((item, idx) => (
-            <tr key={idx} className="text-center border-t border-gray-200">
+            <tr key={idx} className="text-center border-t border-gray-200" >
               <td>{item.id}</td>
               <td>{item.timestamp}</td>
               <td>{item.adresse}</td>
