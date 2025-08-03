@@ -106,6 +106,12 @@ const style={
    background: "rgb(20,150,255)",
    color: "#fff"
   },
+  tr:{
+   background:"rgb(230,230,255)"
+  },
+  tr_s:{
+   background:"rgb(240,240,255)"
+  },
   setting:{
    boxShadow: "0 0 8px rgb(180,180,180)",
    margin: "auto",
@@ -145,7 +151,7 @@ const Table = () => {
         </thead>
         <tbody>
           {rivieres.map((item, idx) => (
-            <tr key={idx} className="text-center border-t border-gray-200" >
+            <tr key={idx} style={idx%2===0 ? {table.tr_s}:{table.tr}} className="text-center border-t border-gray-200" >
               <td>{item.id}</td>
               <td>{item.timestamp}</td>
               <td>{item.adresse}</td>
