@@ -1,14 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
  
-const generateNumber=():string=>{
-    const suffix=["81","82","83","84","85","89","90","97","99"]
-    let num=''
-    for (let index = 0; index < 7; index++) {
-            num=num+Math.floor(Math.random()*10);  
-    }
-    return "+243"+suffix[Math.floor(Math.random()*9)]+num
-}//Générateurs des numéros
+ 
 type Data = {
   id: number;
   timestamp: string;
@@ -21,80 +14,7 @@ type Data = {
   temps23: number;
   estimation: number;
 };
-const rivieres=[
- {
-    id: Math.floor(Math.random()*100),
-    timestamp: "",
-    riviere: 'Rivière de Bandal',
-    adresse: 'Bandalungwa',
-    distance: Math.floor(Math.random()*100),
-    nom_resp: '',
-    tel: generateNumber(),
-    temps12: Math.floor(Math.random()*100),
-    temps23: Math.floor(Math.random()*100),
-    estimation: Math.floor(Math.random()*100)
-},
-{
-    id: Math.floor(Math.random()*100),
-    timestamp: "",
-    riviere: 'NDJILI',
-    adresse: 'COmmne de Ndjili',
-    distance: Math.floor(Math.random()*100),
-    nom_resp: '',
-    tel: generateNumber(),
-    temps12: Math.floor(Math.random()*100),
-    temps23: Math.floor(Math.random()*100),
-    estimation: Math.floor(Math.random()*100)
-},
-{
-    id: Math.floor(Math.random()*100),
-    timestamp: "",
-    riviere: 'Kisenso',
-    adresse: 'Dans la commune de Kisenso', 
-    distance: Math.floor(Math.random()*100),
-    nom_resp: '',
-    tel: generateNumber(),
-    temps12: Math.floor(Math.random()*100),
-    temps23: Math.floor(Math.random()*100),
-    estimation: Math.floor(Math.random()*100)
-},
-{
-    id: Math.floor(Math.random()*100),
-    timestamp: "",
-    riviere: 'Kongo',
-    adresse: 'Commune de Lingwala',
-    distance: Math.floor(Math.random()*100),
-    nom_resp: '',
-    tel: generateNumber(),
-    temps12: Math.floor(Math.random()*100),
-    temps23: Math.floor(Math.random()*100),
-    estimation: Math.floor(Math.random()*100)
-},
-{
-    id: Math.floor(Math.random()*100),
-    timestamp: "",
-    riviere: 'Rivière Martyrs',
-    adresse: 'KASAVUVU',
-    distance: Math.floor(Math.random()*100),
-    nom_resp: '',
-    tel: generateNumber(),
-    temps12: Math.floor(Math.random()*100),
-    temps23: Math.floor(Math.random()*100),
-    estimation: Math.floor(Math.random()*100)
-},
-{
-    id: Math.floor(Math.random()*100),
-    timestamp: "",
-    riviere: 'UPN',
-    adresse: 'NGALIEMA',
-    distance: Math.floor(Math.random()*100),
-    nom_resp: '',
-    tel: generateNumber(),
-    temps12: Math.floor(Math.random()*100),
-    temps23: Math.floor(Math.random()*100),
-    estimation: Math.floor(Math.random()*100)
-}
-]
+
 const style={
    div:{
      maxWidth:"80%",
@@ -153,7 +73,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {rivieres.map((item, idx) => (
+          {data.map((item, idx) => (
             <tr key={idx} style={idx%2===0 ? style.table.tr_s:style.table.tr} className="text-center border-t border-gray-200" >
               <td>{item.id}</td>
               <td>{item.timestamp}</td>
