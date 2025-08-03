@@ -134,7 +134,7 @@ const Table = () => {
           <tr className="bg-gray-100">
             <th style={style.table.th}>ID</th>
          <th style={style.table.th}>Date/Heure</th>
-<th style={style.table.th}>site</th>
+<th style={style.table.th}>Site ...</th>
 <th style={style.table.th}>Distance</th>
 <th style={style.table.th}>Responsable</th>
 <th style={style.table.th}>Téléphone</th>
