@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import './style/style.css'
+import './styles/style.css'
 
 type Data = {
   id: number;
