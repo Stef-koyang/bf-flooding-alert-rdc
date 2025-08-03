@@ -42,7 +42,7 @@ const CarteGoogle: React.FC = () => {
     map.fitBounds(bounds);
   }, []);
     
-  return <div ref={mapRef} style={{ height: '400px', width: '100%' }} />;
+  return <div ref={mapRef} style={{ height: '400px', width: '90%',margin:'auto' }} />;
 };
 
 export default CarteGoogle;
