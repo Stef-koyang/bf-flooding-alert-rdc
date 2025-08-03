@@ -21,8 +21,14 @@ const style={
     border: '1px solid blue'
    },
  table:{
+  th:{
+   border: "1px solid green",
+   backgroundCOlor: "rgb(200,200,200)",
+   color: "#fff"
+  },
+  setting:{
    color: "red",
-   border: "1px solid red"
+   border: "1px solid red"}
  }
 }
 const Table = () => {
@@ -40,18 +46,18 @@ const Table = () => {
   return (
     
     <div style={style.div}>
-      <table style={style.table} className="table-auto w-full border-collapse border border-gray-200">
+      <table style={style.table.setting} className="table-auto w-full border-collapse border border-gray-200">
         <thead>
           <tr className="bg-gray-100">
-            <th>ID</th>
-            <th>Date/Heure</th>
-            <th>site</th>
-            <th>Distance</th>
-            <th>Responsable</th>
-            <th>Téléphone</th>
-            <th>Temps 1-2</th>
-            <th>Temps 2-3</th>
-            <th>Estimation</th>
+            <th style={style.table.th}>ID</th>
+         <th style={style.table.th}>Date/Heure</th>
+<th style={style.table.th}>site</th>
+<th style={style.table.th}>Distance</th>
+<th style={style.table.th}>Responsable</th>
+<th style={style.table.th}>Téléphone</th>
+<th style={style.table.th}>Temps 1-2</th>
+<th style={style.table.th}>Temps 2-3</th>
+<th style={style.table.th}>Estimation</th>
           </tr>
         </thead>
         <tbody>
