@@ -39,8 +39,9 @@ const CarteGoogle: React.FC = () => {
       });
       bounds.extend({ lat: loc.lat, lng: loc.lng });
     });
+    map.setZoom(450)
     console.log("MAP monté : ", map,"loc:" ,locations)
-    map.setZoom(50)
+    
     map.fitBounds(bounds);
   }, []);
     
