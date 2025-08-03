@@ -17,12 +17,11 @@ type Data = {
 const style={
    div:{
      maxWidth:"80%",
-    margin: 'auto',
-    border: '1px solid blue'
+    margin: 'auto'
    },
  table:{
   th:{ 
-   backgroundColor: "rgb(20,150,255)",
+   background: "rgb(20,150,255)",
    color: "#fff"
   },
   setting:{
@@ -30,7 +29,8 @@ const style={
    margin: "auto",
    width :'90%',
    color: "red",
-   border: "1px solid red"}
+   borderRadius: "8px"
+  }
  }
 }
 const Table = () => {
