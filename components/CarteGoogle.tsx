@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 declare global {
   interface Window {
@@ -9,38 +9,51 @@ declare global {
 
 const CarteGoogle: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const [map, setMap] = useState<any>(null);
+  const mapInstance = useRef<any>(null);
+  const markers = useRef<any[]>([]);
 
-  useEffect(() => {
-    const loadMap = async () => {
-      const response = await fetch('/api/data');
-      const data = await response.json();
+  const loadMarkers = async () => {
+    const response = await fetch('/api/data');
+    const data = await response.json();
 
-      if (!window.google || !mapRef.current) return;
+    if (!window.google || !mapRef.current) return;
 
-      const gmap = new window.google.maps.Map(mapRef.current, {
+    if (!mapInstance.current) {
+      mapInstance.current = new window.google.maps.Map(mapRef.current, {
         zoom: 12,
         center: { lat: -4.35, lng: 15.3 },
       });
+    }
 
-      const bounds = new window.google.maps.LatLngBounds();
+    // Supprimer les anciens marqueurs
+    markers.current.forEach(marker => marker.setMap(null));
+    markers.current = [];
 
-      data.forEach((point: any) => {
+    const bounds = new window.google.maps.LatLngBounds();
+
+    data.forEach((point: any) => {
+      if (point.lat && point.lng) {
         const position = { lat: point.lat, lng: point.lng };
         bounds.extend(position);
 
-        new window.google.maps.Marker({
+        const marker = new window.google.maps.Marker({
           position,
-          map: gmap,
+          map: mapInstance.current,
           title: point.adresse,
         });
-      });
 
-      gmap.fitBounds(bounds);
-      setMap(gmap);
-    };
+        markers.current.push(marker);
+      }
+    });
 
-    loadMap();
+    if (data.length > 0) {
+      mapInstance.current.fitBounds(bounds);
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(loadMarkers, 2000); // toutes les 2s
+    return () => clearInterval(interval);
   }, []);
 
   return <div ref={mapRef} style={{ height: '400px', width: '100%' }} />;
