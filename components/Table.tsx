@@ -26,7 +26,7 @@ const style={
    color: "#fff"
   },
   setting:{
-   boxShadow: "0 0 8 rgb(180,180,180)",
+   boxShadow: "0 0 8px rgb(180,180,180)",
    margin: "auto",
    width :'90%',
    color: "red",
