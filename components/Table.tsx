@@ -27,7 +27,9 @@ const style={
    color: "#fff"
   },
   setting:{
-   width: "100%",
+   mqrgin: "auto",
+   width :'90%',
+   
    color: "red",
    border: "1px solid red"}
  }
