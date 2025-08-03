@@ -21,6 +21,7 @@ const style={
    },
  table:{
   th:{ 
+   border: 'none',
    background: "rgb(20,150,255)",
    color: "#fff"
   },
